@@ -1,0 +1,26 @@
+# Large generated files — don't commit these
+data/generated/
+data/surrogate/
+trained_models/
+results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Keep placeholders for empty dirs
+!data/generated/.gitkeep
+!data/surrogate/.gitkeep
+!trained_models/.gitkeep
+!results/.gitkeep

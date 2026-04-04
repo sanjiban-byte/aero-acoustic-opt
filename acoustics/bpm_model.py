@@ -30,9 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import config
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # SECTION 1 — SPECTRAL SHAPE FUNCTION A
-# ════════════════════════════════════════════════════════════════════════════
 # The A function describes the shape of the TBL-TE noise spectrum.
 # It is a piece-wise empirical fit (BPM 1989, eq. A4–A6 and Fig. A2).
 #
@@ -104,9 +102,7 @@ def _A_weighted(a: float, aoa_deg: float) -> float:
         return (1 - t) * _A_min(a) + t * _A_max(a)
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # SECTION 2 — PEAK STROUHAL NUMBER
-# ════════════════════════════════════════════════════════════════════════════
 # The Strouhal number at peak emission. This is where the spectrum is loudest.
 # St = f * δ* / U, so St_peak tells you the frequency of peak emission.
 #
@@ -147,9 +143,7 @@ def _St_peak_suction(aoa_deg: float) -> float:
     return St1 * 10.0 ** (0.0054 * (aoa_deg - 1.333) ** 2)
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # SECTION 3 — AMPLITUDE FUNCTIONS K1 AND ΔK1
-# ════════════════════════════════════════════════════════════════════════════
 # K1 is the overall amplitude of the TBL-TE noise spectrum as a function
 # of chord Reynolds number. It captures how the turbulent boundary layer
 # intensity varies with Re.
@@ -190,10 +184,7 @@ def _delta_K1(aoa_deg: float, Re_c: float) -> float:
     # BPM empirical fit for ΔK1 (dB)
     return aoa_rad * (1.43 * np.log10(Re_c) - 5.29)
 
-
-# ════════════════════════════════════════════════════════════════════════════
 # SECTION 4 — DIRECTIVITY
-# ════════════════════════════════════════════════════════════════════════════
 # Trailing-edge noise does not radiate equally in all directions — it has
 # a characteristic cardioid-like directivity pattern.
 #
@@ -234,10 +225,7 @@ def _Dh(theta_deg: float, phi_deg: float, Mach: float) -> float:
 
     return numerator / denominator
 
-
-# ════════════════════════════════════════════════════════════════════════════
 # SECTION 5 — MAIN SPL COMPUTATION
-# ════════════════════════════════════════════════════════════════════════════
 
 def compute_spl_tbl_te(
     delta_star_p : float,

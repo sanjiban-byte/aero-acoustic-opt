@@ -1,4 +1,3 @@
-# boundary_layer/train_dstar_surrogate.py
 """
 Train MLP surrogate to predict delta* from CST parameters.
 
@@ -24,9 +23,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import config
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # MODEL DEFINITION
-# ════════════════════════════════════════════════════════════════════════════
 
 class DStarMLP(nn.Module):
     """
@@ -58,9 +55,7 @@ class DStarMLP(nn.Module):
         return self.net(x)
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # TRAINING
-# ════════════════════════════════════════════════════════════════════════════
 
 def train_surrogate(
     X              : np.ndarray,
@@ -202,9 +197,7 @@ def train_surrogate(
     return model, scaler_X, scaler_y, test_metrics
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # PHYSICAL VALIDATION
-# ════════════════════════════════════════════════════════════════════════════
 
 def validate_surrogate_physics(model, scaler_X, scaler_y):
     """
@@ -256,9 +249,7 @@ def validate_surrogate_physics(model, scaler_X, scaler_y):
     return thickness_trend_ok
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # MAIN
-# ════════════════════════════════════════════════════════════════════════════
 
 def main():
     print("=" * 55)

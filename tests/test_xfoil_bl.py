@@ -1,4 +1,3 @@
-# tests/test_xfoil_bl.py
 """
 Test the XFOIL boundary layer extractor.
 

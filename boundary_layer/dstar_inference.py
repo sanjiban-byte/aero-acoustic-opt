@@ -1,4 +1,3 @@
-# boundary_layer/dstar_inference.py
 """
 Fast delta* inference using the trained MLP surrogate.
 
@@ -23,10 +22,7 @@ from typing import Optional
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import config
 
-
-# ════════════════════════════════════════════════════════════════════════════
 # MODEL DEFINITION  (must match train_dstar_surrogate.py exactly)
-# ════════════════════════════════════════════════════════════════════════════
 
 import torch.nn as nn
 
@@ -48,13 +44,7 @@ class DStarMLP(nn.Module):
         return self.net(x)
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # LOAD SURROGATE AT MODULE IMPORT TIME
-# ════════════════════════════════════════════════════════════════════════════
-# Why at import time and not inside the function?
-# The RL environment calls predict_dstar_fast() ~2,000,000 times during
-# training. Loading the model inside the function would mean 2M file reads.
-# Loading once at import keeps it in RAM for the entire training session.
 
 _surrogate_loaded = False
 _model            = None
@@ -109,9 +99,7 @@ def _load_surrogate():
 _load_surrogate()
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # INFERENCE FUNCTION
-# ════════════════════════════════════════════════════════════════════════════
 
 def predict_dstar_fast(
     cst_params : np.ndarray,

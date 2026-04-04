@@ -1,4 +1,3 @@
-# evaluation/compute_baseline.py
 """
 Compute and save the NACA 0012 baseline at our fixed operating condition.
 

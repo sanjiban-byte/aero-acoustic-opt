@@ -1,4 +1,3 @@
-# boundary_layer/generate_dstar_dataset.py
 """
 Generate CST → δ* training dataset using analytical BL correlations.
 
@@ -35,10 +34,7 @@ from tqdm import tqdm
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import config
 
-
-# ════════════════════════════════════════════════════════════════════════════
-# CST COORDINATE GENERATION  (same as before)
-# ════════════════════════════════════════════════════════════════════════════
+# CST COORDINATE GENERATION  
 
 def bernstein_poly(i: int, n: int, x: np.ndarray) -> np.ndarray:
     from math import comb
@@ -84,9 +80,7 @@ def cst_to_coordinates(
     return np.column_stack([x_coords, y_coords])
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # ANALYTICAL δ* ESTIMATION
-# ════════════════════════════════════════════════════════════════════════════
 
 def compute_dstar_analytical(
     upper_weights : np.ndarray,
@@ -209,9 +203,7 @@ def validate_analytical_model():
     return dstar_p, dstar_s
 
 
-# ════════════════════════════════════════════════════════════════════════════
 # DATASET GENERATION
-# ════════════════════════════════════════════════════════════════════════════
 
 def is_physically_valid(upper_weights, lower_weights):
     if np.mean(upper_weights) < -0.1:

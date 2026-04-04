@@ -58,7 +58,7 @@ PPO_TOTAL_STEPS    = 2_000_000
 LAMBDA_VALUES = [0.0, 0.5, 1.5, 3.0, 6.0]
 
 # ── δ* surrogate dataset ─────────────────────────────────────────────────────
-DSTAR_N_SAMPLES   = 8_000
+DSTAR_N_SAMPLES   = 5_000
 DSTAR_RANDOM_SEED = 42
 
 # ── BPM validity bounds ──────────────────────────────────────────────────────

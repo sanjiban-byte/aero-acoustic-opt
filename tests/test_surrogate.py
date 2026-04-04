@@ -1,4 +1,3 @@
-# tests/test_surrogate.py
 """
 Test the delta* surrogate MLP.
 

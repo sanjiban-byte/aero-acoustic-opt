@@ -6,7 +6,7 @@ from pathlib import Path
 RE      = 500_000           # Reynolds number                [dimensionless]
 CHORD   = 0.5               # airfoil chord length           [m]
 NU_AIR  = 1.5e-5            # kinematic viscosity of air     [m²/s]
-U_INF   = RE * NU_AIR / CHORD   # = 15.0 m/s — DERIVED, do not set manually
+U_INF   = RE * NU_AIR / CHORD   # = 15.0 m/s — DERIVED 
 RHO_AIR = 1.225             # air density at sea level       [kg/m³]
 C_SOUND = 343.0             # speed of sound at 20°C         [m/s]
 MACH    = U_INF / C_SOUND   # ≈ 0.044 — well within BPM's low-Mach validity
@@ -31,12 +31,12 @@ CST_LOWER_MAX    =  0.05    # maximum value for lower surface weights
 
 # ── DRLFoil environment ──────────────────────────────────────────────────────
 MAX_STEPS       = 10
-SCALE_ACTIONS   = 0.3
+SCALE_ACTIONS   = 0.05
 CL_TARGET       = 0.6
 CL_WIDE         = 20
 EFFICIENCY_PARAM = 1.0
-AIRFOIL_SEED_UPPER = [0.3] * N_CST_PARAMS
-AIRFOIL_SEED_LOWER = [0.3] * N_CST_PARAMS
+AIRFOIL_SEED_UPPER = [0.17] * N_CST_PARAMS
+AIRFOIL_SEED_LOWER = [-0.17] * N_CST_PARAMS
 AIRFOIL_SEED_LE    = [0.0]  # leading edge parameter
 
 # ── PPO hyperparameters (Orgeira-Crespo Table 10) ────────────────────────────
